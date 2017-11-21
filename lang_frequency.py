@@ -19,16 +19,16 @@ def load_data(file_path):
 
 def get_most_frequent_words(text):
     words_in_text = re.findall(r'\w+', text)
-    words_count = Counter(words_in_text)
-    for key in sorted(words_count, key=words_count.get, reverse=True)[:10]:
-        print('слово "{}" в тексте встречаеться {} раз'
-              .format(key, words_count[key]))
+    words_count = Counter(words_in_text).most_common(10)
+    return words_count
+
 
 
 if __name__ == '__main__':
     try:
         file_path = parser_arg()
         text_from_file = load_data(file_path)
-        get_most_frequent_words(text_from_file)
+        top_10_words = get_most_frequent_words(text_from_file)
+        print(top_10_words)
     except (IOError, FileNotFoundError):
         print('No such file or directory')
