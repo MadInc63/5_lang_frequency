@@ -13,16 +13,17 @@ optional arguments:
 To start searching for most frequent words in a text file, you must specify the path to the text file using the space after the script is called.
 ```bash
 ~$python lang_frequency.py war.txt
-The word "и" occurs 10649 times in text
-The word "в" occurs 5308 times in text
-The word "не" occurs 4404 times in text
-The word "что" occurs 3954 times in text
-The word "он" occurs 3825 times in text
-The word "на" occurs 3383 times in text
-The word "с" occurs 3108 times in text
-The word "как" occurs 2151 times in text
-The word "я" occurs 1959 times in text
-The word "его" occurs 1937 times in text
+Ten most repetitive words in the text and the number of their repetitions:
+"и" = 10649
+"в" = 5308
+"не" = 4404
+"что" = 3954
+"он" = 3825
+"на" = 3383
+"с" = 3108
+"как" = 2151
+"я" = 1959
+"его" = 1937
 ```
 # Project Goals
 
