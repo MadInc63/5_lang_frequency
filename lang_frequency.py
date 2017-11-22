@@ -3,7 +3,7 @@ import argparse
 from collections import Counter
 
 
-def parser_arg():
+def creat_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("file_path",
                         help="file path to find top ten words")
@@ -30,7 +30,7 @@ def get_most_frequent_words(text):
 
 if __name__ == '__main__':
     try:
-        file_path = parser_arg().file_path
+        file_path = creat_parser().file_path
         load_text_from_file = load_data(file_path)
         lowercase_text = convert_to_lowercase(load_text_from_file)
         dict_of_most_frequent_words = get_most_frequent_words(lowercase_text)
