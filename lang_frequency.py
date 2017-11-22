@@ -7,8 +7,7 @@ def parser_arg():
     parser = argparse.ArgumentParser()
     parser.add_argument("file_path",
                         help="file path to find top ten words")
-    args = parser.parse_args()
-    return args.file_path
+    return parser.parse_args()
 
 
 def load_data(file_path):
@@ -18,27 +17,26 @@ def load_data(file_path):
 
 
 def convert_to_lowercase(normal_text):
-    lowercase_text = normal_text.lower()
-    return lowercase_text
+    return normal_text.lower()
 
 
 def get_most_frequent_words(text):
     found_words_in_text = re.findall(r'\w+', text)
     number_of_most_common_words = 10
-    ten_most_common_words = Counter(found_words_in_text)\
-                            .most_common(number_of_most_common_words)
-    return ten_most_common_words
+    most_common_words = Counter(found_words_in_text)\
+                        .most_common(number_of_most_common_words)
+    return most_common_words
 
 
 if __name__ == '__main__':
     try:
-        file_path = parser_arg()
+        file_path = parser_arg().file_path
         load_text_from_file = load_data(file_path)
-        text_to_lowercase = convert_to_lowercase(load_text_from_file)
-        most_frequent_words = get_most_frequent_words(text_to_lowercase)
-        for most_word in most_frequent_words:
-            word, count = most_word
-            print('The word "{}" occurs {} times in text'
-                  .format(word, count))
+        lowercase_text = convert_to_lowercase(load_text_from_file)
+        dict_of_most_frequent_words = get_most_frequent_words(lowercase_text)
+        print('Ten most repetitive words in the text and the number of their'
+              ' repetitions:')
+        for word, count in dict_of_most_frequent_words:
+            print('"{}" = {}'.format(word, count))
     except (IOError, FileNotFoundError):
         print('No such file or directory')
