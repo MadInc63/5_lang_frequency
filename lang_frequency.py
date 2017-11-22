@@ -6,7 +6,7 @@ from collections import Counter
 def parser_arg():
     parser = argparse.ArgumentParser()
     parser.add_argument("file_path",
-                        help="file path to find top 10 words")
+                        help="file path to find top ten words")
     args = parser.parse_args()
     return args.file_path
 
@@ -24,8 +24,10 @@ def convert_to_lowercase(normal_text):
 
 def get_most_frequent_words(text):
     found_words_in_text = re.findall(r'\w+', text)
-    word_counting_in_text = Counter(found_words_in_text).most_common(10)
-    return word_counting_in_text
+    number_of_most_common_words = 10
+    ten_most_common_words = Counter(found_words_in_text)\
+                            .most_common(number_of_most_common_words)
+    return ten_most_common_words
 
 
 if __name__ == '__main__':
