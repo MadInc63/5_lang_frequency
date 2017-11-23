@@ -32,10 +32,10 @@ if __name__ == '__main__':
         file_path = create_parser().file_path
         load_text_from_file = load_data(file_path)
         lowercase_text = convert_to_lowercase(load_text_from_file)
-        tuple_of_most_frequent_words = get_most_frequent_words(lowercase_text)
+        most_frequent_words = get_most_frequent_words(lowercase_text)
         print('Ten most repetitive words in the text and the number of their'
               ' repetitions:')
-        for word, count in tuple_of_most_frequent_words:
+        for word, count in most_frequent_words:
             print('"{}" = {}'.format(word, count))
     except (IOError, FileNotFoundError):
         print('No such file or directory')
